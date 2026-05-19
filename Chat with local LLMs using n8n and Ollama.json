@@ -1,0 +1,118 @@
+{
+  "name": "Chat with local LLMs using n8n and Ollama",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "a0aecf33-06c8-4e10-b893-4bae5acf77c9",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [
+        544,
+        384
+      ],
+      "webhookId": "ebdeba3f-6b4f-49f3-ba0a-8253dd226161",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "model": "=llama3.2:3b",
+        "options": {}
+      },
+      "id": "343be6a8-8673-4f5b-a7ca-c20cbf9697ed",
+      "name": "Ollama Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "position": [
+        752,
+        608
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "ollamaApi": {
+          "id": "zJ1BYZ0tnRui4vN6",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Chat with local LLMs using n8n and Ollama\nThis n8n workflow allows you to seamlessly interact with your self-hosted Large Language Models (LLMs) through a user-friendly chat interface. By connecting to Ollama, a powerful tool for managing local LLMs, you can send prompts and receive AI-generated responses directly within n8n.\n\n### How it works\n1. When chat message received: Captures the user's input from the chat interface.\n2. Chat LLM Chain: Sends the input to the Ollama server and receives the AI-generated response.\n3. Delivers the LLM's response back to the chat interface.\n\n### Set up steps\n* Make sure Ollama is installed and running on your machine before executing this workflow.\n* Edit the Ollama address if different from the default.\n",
+        "height": 473,
+        "width": 485
+      },
+      "id": "089ea948-7f00-49cb-8673-6eab56287f7d",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        128
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Ollama setup\n* Connect to your local Ollama, usually on http://localhost:11434\n* If running in Docker, make sure that the n8n container has access to the host's network in order to connect to Ollama. You can do this by passing `--net=host` option when starting the n8n Docker container",
+        "height": 258,
+        "width": 368,
+        "color": 6
+      },
+      "id": "41df08dc-2f77-424a-8c6b-abc1c5b77201",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        880,
+        528
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "ba569c13-fc62-4377-b722-0fe821ddcd55",
+      "name": "Chat LLM Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "position": [
+        768,
+        384
+      ],
+      "typeVersion": 1.4
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Chat LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Chat LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "fa5d6f08-a0b7-4598-80dd-6af694b54512",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "60ab1819ad0cca56209ab042e8f0ec88b7fa3d7aaeeb900dfdc2cc043860c375"
+  },
+  "id": "SppJtXh5Oimb8Ho3",
+  "tags": []
+}
