@@ -1,1 +1,9 @@
+# OS
+.DS_Store
 
+# n8n exports only
+*.log
+
+# Never commit secrets
+.env
+credentials/
