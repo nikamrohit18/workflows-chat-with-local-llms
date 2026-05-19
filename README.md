@@ -1,11 +1,27 @@
-# n8n Workflows
+# n8n Workflow Repository
 
-This repo stores exported n8n workflows as JSON.
+A clean, version-controlled home for my exported **n8n workflows**.
 
-## Workflow
-- `workflows/chat-with-local-llms.json`
+## What’s inside
 
-## Notes
-- Credentials are not stored in Git.
-- Update the JSON export after making changes in n8n.
-- Import the workflow back into n8n when needed.
+- `workflows/chat-with-local-llms.json` — exported workflow file
+- `.gitignore` — keeps local and sensitive files out of Git
+- `README.md` — repo guide
+
+## Purpose
+
+This repository is used to:
+
+- back up n8n workflows
+- track changes over time
+- restore workflows when needed
+- keep workflow definitions organized and shareable
+
+## Workflow structure
+
+```text
+my-n8n-project/
+├─ workflows/
+│ └─ chat-with-local-llms.json
+├─ .gitignore
+└─ README.md
