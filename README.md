@@ -4,7 +4,7 @@ A clean, version-controlled home for my exported **n8n workflows**.
 
 ## What’s inside
 
-- `workflows/chat-with-local-llms.json` — exported workflow file
+- `workflows/chat-with-local-llms.json` — workflow file
 - `.gitignore` — keeps local and sensitive files out of Git
 - `README.md` — repo guide
 
